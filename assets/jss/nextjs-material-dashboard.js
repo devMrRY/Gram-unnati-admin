@@ -54,6 +54,7 @@ const defaultFont = {
   lineHeight: "1.5em",
 };
 
+const themeBlueColor = ["#043471", "#89b75b", "#89bf54", "#6c9940"];
 const primaryColor = ["#7EB04D", "#89b75b", "#89bf54", "#6c9940"];
 const warningColor = ["#ff9800", "#ffa726", "#fb8c00", "#ffa21a"];
 const dangerColor = ["#f44336", "#ef5350", "#e53935", "#f55a4e"];
@@ -271,6 +272,7 @@ export {
   boxShadow,
   card,
   defaultFont,
+  themeBlueColor,
   primaryColor,
   warningColor,
   dangerColor,

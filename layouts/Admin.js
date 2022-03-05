@@ -4,10 +4,10 @@ import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { makeStyles } from "@material-ui/core/styles";
 // core components
-import Navbar from "components/Navbars/Navbar.js";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-// import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import Navbar from "components/theme/Navbars/Navbar.js";
+import Footer from "components/theme/Footer/Footer.js";
+import Sidebar from "components/theme/Sidebar/Sidebar.js";
+// import FixedPlugin from "components/theme/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 

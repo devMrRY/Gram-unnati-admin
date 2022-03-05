@@ -171,6 +171,13 @@ const sidebarStyle = (theme) => ({
     backgroundColor: "transparent",
     ...defaultFont,
   },
+  rotateIcon: {
+    transform: "rotate(90deg)",
+  },
+  navTextContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   itemIcon: {
     width: "24px",
     height: "30px",

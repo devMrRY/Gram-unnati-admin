@@ -4,12 +4,13 @@ import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
 
-import PageChange from "components/PageChange/PageChange.js";
+import PageChange from "components/theme/PageChange/PageChange.js";
 
 import "assets/css/nextjs-material-dashboard.css?v=1.1.0";
+import { AuthProvider } from "../context/providers/auth";
+import WithAuth from "../components/withAuth";
 
 Router.events.on("routeChangeStart", (url) => {
-  console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
   ReactDOM.render(
     <PageChange path={url} />,
@@ -50,9 +51,13 @@ export default class MyApp extends App {
           <title>Gram Unnati</title>
           <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AuthProvider>
+          <WithAuth isAuthRequired={Component.AuthRequired}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </WithAuth>
+        </AuthProvider>
       </React.Fragment>
     );
   }

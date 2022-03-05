@@ -49,7 +49,7 @@ const styles = {
   },
 };
 
-function Farmer() {
+function Collection() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   return (
@@ -57,7 +57,7 @@ function Farmer() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="white">
-            <Typography variant="h6">Search Farmer</Typography>
+            <Typography variant="h6">Search Collection</Typography>
             <Box mt={2} mb={2}>
               <GridContainer>
                 <GridItem xs={12} sm={6} md={4} lg={3}>
@@ -96,6 +96,7 @@ function Farmer() {
   );
 }
 
-Farmer.layout = Admin;
+Collection.layout = Admin;
+Collection.AuthRequired = true;
 
-export default Farmer;
+export default Collection;

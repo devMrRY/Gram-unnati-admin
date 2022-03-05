@@ -4,16 +4,16 @@ import { makeStyles } from "@material-ui/core/styles";
 // layout for this page
 import Admin from "layouts/Admin.js";
 // core components
-import Quote from "components/Typography/Quote.js";
-import Muted from "components/Typography/Muted.js";
-import Primary from "components/Typography/Primary.js";
-import Info from "components/Typography/Info.js";
-import Success from "components/Typography/Success.js";
-import Warning from "components/Typography/Warning.js";
-import Danger from "components/Typography/Danger.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
+import Quote from "components/theme/Typography/Quote.js";
+import Muted from "components/theme/Typography/Muted.js";
+import Primary from "components/theme/Typography/Primary.js";
+import Info from "components/theme/Typography/Info.js";
+import Success from "components/theme/Typography/Success.js";
+import Warning from "components/theme/Typography/Warning.js";
+import Danger from "components/theme/Typography/Danger.js";
+import Card from "components/theme/Card/Card.js";
+import CardHeader from "components/theme/Card/CardHeader.js";
+import CardBody from "components/theme/Card/CardBody.js";
 
 const styles = {
   typo: {

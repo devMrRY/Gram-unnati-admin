@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // layout for this page
@@ -11,6 +11,8 @@ import Card from "components/theme/Card/Card.js";
 import CardHeader from "components/theme/Card/CardHeader.js";
 import CardBody from "components/theme/Card/CardBody.js";
 import { Box, Button, TextField, Typography } from "@material-ui/core";
+import { CropProvider, useCropContext } from "../../context/providers/crop";
+import { getCrops } from "../../context/actions/crop";
 
 const styles = {
   cardCategoryWhite: {
@@ -49,28 +51,38 @@ const styles = {
   },
 };
 
-function Farmer() {
+function Crop() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
+  const [CropData, dispatch] = useCropContext();
+
+  useEffect(() => {
+    getCrops()(dispatch);
+  }, [])
+
+  const makeData = () => {
+    let data = [];
+    if(CropData?.crops && Array.isArray(CropData.crops) && CropData.crops.length){
+      data = CropData.crops.map((crp, i) => (
+        [i + 1, crp.name, crp.category]
+      ))
+    }
+    return data;
+  }
+
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="white">
-            <Typography variant="h6">Search Farmer</Typography>
+            <Typography variant="h6">Search Crop</Typography>
             <Box mt={2} mb={2}>
               <GridContainer>
                 <GridItem xs={12} sm={6} md={4} lg={3}>
                   <TextField margin="dense" fullWidth variant="outlined" label="Name" />
                 </GridItem>
                 <GridItem xs={12} sm={6} md={4} lg={3}>
-                  <TextField margin="dense" fullWidth variant="outlined" label="Country" />
-                </GridItem>
-                <GridItem xs={12} sm={6} md={4} lg={3}>
-                  <TextField margin="dense" fullWidth variant="outlined" label="City" />
-                </GridItem>
-                <GridItem xs={12} sm={6} md={4} lg={3}>
-                  <TextField margin="dense" fullWidth variant="outlined" label="Salary" />
+                  <TextField margin="dense" fullWidth variant="outlined" label="Category" />
                 </GridItem>
               </GridContainer>
             </Box>
@@ -79,15 +91,8 @@ function Farmer() {
           <CardBody>
             <Table
               tableHeaderColor="themeBlue"
-              tableHead={["Sr No.", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["2", "Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["3", "Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["4", "Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["5", "Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["6", "Mason Porter", "Chile", "Gloucester", "$78,615"],
-              ]}
+              tableHead={["Sr No.", "Name", "Category"]}
+              tableData={makeData()}
             />
           </CardBody>
         </Card>
@@ -96,6 +101,10 @@ function Farmer() {
   );
 }
 
-Farmer.layout = Admin;
 
-export default Farmer;
+const CropComponent = (props) => <CropProvider><Crop {...props} /></CropProvider>
+
+CropComponent.layout = Admin;
+CropComponent.AuthRequired = false;
+
+export default CropComponent;

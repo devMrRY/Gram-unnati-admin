@@ -1,8 +1,8 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import BubbleChart from "@material-ui/icons/BubbleChart";
-import Notifications from "@material-ui/icons/Notifications";
+import PhoneIcon from '@material-ui/icons/PhoneAndroid';
+import CropIcon from '@material-ui/icons/Nature';
+import CollectionIcon from '@material-ui/icons/Collections';
 
 const dashboardRoutes = [
   {
@@ -20,33 +20,27 @@ const dashboardRoutes = [
       {
         path: "/user-management/farmer",
         name: "Farmer",
-        icon: BubbleChart,
+        icon: Person,
         layout: "/admin",
       },
       {
-        path: "/bussiness-user",
+        path: "/user-management/business-user",
         name: "Business User",
-        icon: Person,
+        icon: PhoneIcon,
         layout: "/admin",
       },
     ]
   },
   {
-    path: "/table-list",
-    name: "Table List",
-    icon: "content_paste",
+    path: "/crop",
+    name: "Crop",
+    icon: CropIcon,
     layout: "/admin",
   },
   {
-    path: "/typography",
-    name: "Typography",
-    icon: LibraryBooks,
-    layout: "/admin",
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: Notifications,
+    path: "/collection",
+    name: "Collection",
+    icon: CollectionIcon,
     layout: "/admin",
   },
 ];

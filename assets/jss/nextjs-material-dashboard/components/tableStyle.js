@@ -6,6 +6,7 @@ import {
   infoColor,
   roseColor,
   grayColor,
+  themeBlueColor,
   defaultFont,
 } from "assets/jss/nextjs-material-dashboard.js";
 
@@ -31,6 +32,9 @@ const tableStyle = (theme) => ({
   grayTableHeader: {
     color: grayColor[0],
   },
+  themeBlueTableHeader: {
+    color: themeBlueColor[0],
+  },
   table: {
     marginBottom: "0",
     width: "100%",
@@ -44,6 +48,7 @@ const tableStyle = (theme) => ({
     ...defaultFont,
     "&, &$tableCell": {
       fontSize: "1em",
+      fontWeight: "450",
     },
   },
   tableCell: {
